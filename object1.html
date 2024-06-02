@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <title>New Tab</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+    </head>
+    <body>
+        <script>
+            function Person(name,age,address){
+                this.name = name,
+                this.age = age,
+                this.address = address,
+                this.message = function(){
+                    console.log("Hi,I'm "+ this.name + " I'm " + this.age + " years old !");
+                }
+            }
+            const person1 = new Person("Eranga",21,"Kegalle");
+            person1.message();
+            console.log(person1.__proto__);
+
+            const Student = {
+                name : "Eranga",
+                age : 21,
+                city : "Warakapola",
+                sub : ['Maths','Physics','Chemistry'],
+                intro : function(){
+                    console.log("Hi,I'm "+ this.name + " I'm " + this.age + " years old !");
+                },
+                school : {
+                    name : "Central Collage",
+                    telNo : "0112365294",
+                    address : "School road,Main city"
+                }
+            }
+            console.log(Student.school.address);
+
+            const person2 = {
+                fullName:function(start,end){
+                    console.log(start + this.firstName + " " + this.lastName + end);
+                }
+            }
+            const person3 = {
+                firstName : "Eranga",
+                lastName : "Madhushan"
+            }
+            person2.fullName.call(person3,"->","<-");
+            person2.fullName.apply(person3,['->','<-']);
+            let person4 = person2.fullName.bind(person3,'->','<-');
+            person4();
+            
+        </script>
+
+
+        <div class="main">
+            <div class="highest">
+                <h1 >High Score :<span id="highest">0</span></h1>
+            </div>
+            <div class="display">
+                <h1 id="display"></h1>
+            </div>
+            <div class="correction">
+                <div class="correct">
+                    <p>Correct :<span id="correct">0</span></p>
+                </div>
+                <div class="incorrect">
+                    <p>Incorrect :<span id="incorrect">0</span></p>
+                </div>
+                <div class="miss">
+                    <p>Miss :<span id="miss">0</span></p>
+                </div>
+            </div>
+            <div class="control">
+                <button type="button" >Start Game</button>
+                <button type="button" onclick="window.reload()">ReStart</button>
+            </div>
+            <div class="progress">
+                <progress max="100" value="100"></progress>
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+            const correct = document.querySelector("#correct");
+            const incorrect = document.querySelector("#incorrect");
+            const miss = document.querySelector("#miss");
+            const progress = document.querySelector("progress");
+            let letter;
+            let timer;
+            let delay = 100;
+            document.querySelector("button").addEventListener("click",startGame)
+            function startGame() {
+                
+                function randomLetter(){
+                const alpha = "abcdefghijklmnopqrstuvwxyz";
+                let value = Math.floor(Math.random() * alpha.length);
+                letter = alpha[value];
+                letter = letter.toUpperCase();
+                console.log(letter);
+                document.querySelector("#display").innerHTML = letter;
+                
+             }
+            randomLetter();
+            startTimer();
+            document.body.addEventListener("keyup",(event)=>{
+                let key = event.key.toUpperCase();
+                console.log(key);
+                if(letter == key){
+                    correct.innerHTML++;
+                    if(correct.innerHTML > 50){
+                        delay = 20;
+                    }
+                    else if(correct.innerHTML > 20){
+                        delay =50;
+                    }
+                    else if(correct.innerHTML > 10 ){
+                        delay =75;
+                    }
+                    startTimer();
+                }
+                else {
+                    incorrect.innerHTML++;
+                }
+                randomLetter();
+            });
+            function startTimer(){
+                progress.value = 100;
+                clearInterval(timer);
+                timer = setInterval(function(){
+                    progress.value--;
+                    if(progress.value == 0){
+                        miss.innerHTML++;
+                        progress.value = 100;
+                        randomLetter();
+                    }
+                },delay)
+            }
+            let Button = document.querySelector("button");
+            if(Button.textContent == "Start Game") {
+                console.log("hi");
+                Button.style.visibility='hidden';
+                delay = 100;
+            }
+            else {
+                document.querySelector("#highest").innerHTML = correct.innerHTML;;
+                correct.innerHTML = 0;
+                incorrect.innerHTML = 0;
+                miss.innerHTML = 0;
+                ;
+            }
+            }
+            
+        </script>
+
+
+    </body>
+</html>
+<!--End the html page here-->
