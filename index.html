@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <title>New Tab</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+    </head>
+    <body>
+        <!-- <script>
+            function Person(name,age,address){
+                this.name = name,
+                this.age = age,
+                this.address = address,
+                this.message = function(){
+                    console.log("Hi,I'm "+ this.name + " I'm " + this.age + " years old !");
+                }
+            }
+            const person1 = new Person("Eranga",21,"Kegalle");
+            person1.message();
+            console.log(person1.__proto__);
+
+            const Student = {
+                name : "Eranga",
+                age : 21,
+                city : "Warakapola",
+                sub : ['Maths','Physics','Chemistry'],
+                intro : function(){
+                    console.log("Hi,I'm "+ this.name + " I'm " + this.age + " years old !");
+                },
+                school : {
+                    name : "Central Collage",
+                    telNo : "0112365294",
+                    address : "School road,Main city"
+                }
+            }
+            console.log(Student.school.address);
+
+            const person2 = {
+                fullName:function(start,end){
+                    console.log(start + this.firstName + " " + this.lastName + end);
+                }
+            }
+            const person3 = {
+                firstName : "Eranga",
+                lastName : "Madhushan"
+            }
+            person2.fullName.call(person3,"->","<-");
+            person2.fullName.apply(person3,['->','<-']);
+            let person4 = person2.fullName.bind(person3,'->','<-');
+            person4();
+            
+        </script> -->
+
+
+        <div class="main">
+            <div class="highest">
+                <h1 >High Score :<span id="highest">0</span></h1>
+            </div>
+            <div class="display">
+                <h1 id="display"></h1>
+            </div>
+            <div class="correction">
+                <div class="correct">
+                    <p>Correct :<span id="correct">0</span></p>
+                </div>
+                <div class="incorrect">
+                    <p>Incorrect :<span id="incorrect">0</span></p>
+                </div>
+                <div class="miss">
+                    <p>Miss :<span id="miss">0</span></p>
+                </div>
+            </div>
+            <div class="control">
+                <button type="button" >Start Game</button>
+                <button type="button" onclick="window.reload()">ReStart</button>
+            </div>
+            <div class="progress">
+                <progress max="100" value="100"></progress>
+            </div>
+        </div>
+
+
+        <script src="new.js">
+            
+        </script>
+
+
+    </body>
+</html>
+<!--End the html page here-->
