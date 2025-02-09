@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+  background-color: #064439;
+}
+.main {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.display {
+  width: 100%;
+  min-height: 200px;
+  border-radius: 50%;
+  font-size: 5rem;
+  text-align: center;
+  background-color: #eee7ce;
+}
+.correction {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.correction div {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.1rem;
+  border-radius: 50%;
+  transform: translateY(-30px);
+}
+.correct {
+  background-color: #c3fa04;
+}
+.incorrect {
+  background-color: #FE8803;
+}
+.miss {
+  background-color: #ff453d;
+}
+.control {
+  display: flex;
+  justify-content: center;
+  padding-block: 10px;
+  gap: 40px;
+}
+.control button {
+  width: 300px;
+  border-radius: 10px;
+  border: none;
+  background-color: #16e1f5;
+  padding: 10px;
+  font-size: 1.4rem;
+  font-family: monospace;
+  cursor: pointer;
+}
+.control button:hover {
+  background-color: #58cb53;
+}
+.progress {
+  width: 100%;
+}
+progress {
+  width: 100%;
+}
